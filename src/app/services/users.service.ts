@@ -8,7 +8,7 @@ type Error = {
   message: string;
 }
 
-export interface UpdateUserResponse {
+export interface UserResponse {
   error: Error
   status: number
 }
@@ -30,24 +30,23 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
 
-  public getUsers(): Observable<ListUsersResponse> {
-    return this.http.get<ListUsersResponse>(`${this.serverAddress}/users`);
+  public getUsers(): Observable<ListUsersResponse>{
+    return this.http.get<ListUsersResponse>(`${this.serverAddress}/users`,);
   }
-  public createUser(user: UserForm) {
-    return this.http.post(`${this.serverAddress}/users`, user);
-  }
-
-  public deleteUser(id: number) {
-
-    return this.http.delete(`${this.serverAddress}/users/${id}`);
+  public createUser(user: UserForm): Observable<HttpResponse<UserResponse>>{
+    return this.http.post<UserResponse>(`${this.serverAddress}/users`, user, {observe: "response"});
   }
 
-  public updateUser(id: number, user: UserForm): Observable<HttpResponse<UpdateUserResponse>> {
-    return this.http.put<UpdateUserResponse>(`${this.serverAddress}/users/${id}`, user, { observe: "response" });
+  public deleteUser(id: number): Observable<HttpResponse<UserResponse>> {
+    return this.http.delete<UserResponse>(`${this.serverAddress}/users/${id}`, {observe: 'response'});
   }
 
-  public LoginUser(userDetails: LoginForm): Observable<HttpResponse<UpdateUserResponse>> {
-    return this.http.post<UpdateUserResponse>(`${this.serverAddress}/login`, userDetails ,{observe: "response"})
+  public updateUser(id: number, user: UserForm): Observable<HttpResponse<UserResponse>> {
+    return this.http.put<UserResponse>(`${this.serverAddress}/users/${id}`, user, { observe: "response" });
+  }
+
+  public LoginUser(userDetails: LoginForm): Observable<HttpResponse<UserResponse>> {
+    return this.http.post<UserResponse>(`${this.serverAddress}/login`, userDetails ,{observe: "response"})
   }
 
 }

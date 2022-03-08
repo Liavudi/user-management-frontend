@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
 
   onSubmit(userId: any, userAge: string, name: string, password: string, email: string, userName: string) {
     let userDetails = new UserForm(userId, userName, name, email, parseInt(password), parseInt(userAge));
-    this.usersService.createUser(userDetails).subscribe(res => console.log(res));
+    this.usersService.createUser(userDetails).subscribe(res => { console.log(res); if (res.status === 200) { alert('User created successfully') } else { alert(`Error creating user. Reason: ${res.body?.error.message}`) } });
 
   }
 }

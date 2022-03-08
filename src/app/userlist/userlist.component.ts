@@ -25,8 +25,8 @@ export class UserlistComponent implements OnInit {
   deleteUser(user: UserForm) {
     this.selectedUser = user;
     var id = this.selectedUser.id
-    this.usersService.deleteUser(id).subscribe(res => console.log(res));
-    console.log(id);
+    this.usersService.deleteUser(id).subscribe(res => { console.log(res); if (res.status === 200) { alert("User deleted successfully") } else { alert(`Failed to delete user. Reason: ${res.body?.error.message}`)}});
+
   }
   updateUser(user: UserForm) {
     this.selectedUser = user;
@@ -34,7 +34,7 @@ export class UserlistComponent implements OnInit {
     this.usersService.updateUser(id, this.selectedUser).subscribe
       (res => {
         console.log(res); if (res.status === 200) {
-          alert('User created succesfully');
+          alert('User updated succesfully');
         } else {
           alert(`Failed to create user. Reason: ${res.body?.error.message}`)
         }
