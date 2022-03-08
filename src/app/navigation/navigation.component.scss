@@ -1,0 +1,10 @@
+nav a.active {
+    background-color: rgb(51, 182, 154);
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    box-shadow: 0 0 5px black;
+}
+nav a.active:hover {
+    background-color: rgb(25, 75, 64);
+}

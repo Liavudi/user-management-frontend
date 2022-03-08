@@ -1,0 +1,12 @@
+<div *ngFor="let todo of todos">
+    <div class='tododiv' *ngIf="this.todo.todo != null">
+        <label class="todotitle" *ngIf="this.todo.todo != null ">{{this.todo.username}}'s todo:</label>
+        <button *ngIf='this.loggedUser === this.todo.username && this.todo.todo != null' class='delete' (click)="deleteTodo()">X</button><br>
+        <label class="todo">{{this.todo.todo}}</label>
+        
+    </div>
+</div>
+<div>
+    <input #todo placeholder="Create a todo">
+    <button mat-raised-button (click)="createTodo(todo.value)">Submit</button>
+</div>

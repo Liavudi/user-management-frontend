@@ -1,0 +1,40 @@
+<ul class="users">
+    <table class="userlist">
+      <h2 class='usertitle'>User List:</h2>
+      <div *ngFor="let user of users" 
+      [class.selected]="user === selectedUser"
+      (click)="onSelect(user)">
+      <div class='id'>
+          <div class="showcase"><span class="badge">    
+            Username: {{user.username}}<br>
+            Name:{{user.name}}<br>
+            Age: {{user.age}}<br>
+            Email: {{user.email}}
+          </span>  
+          </div>
+
+    </div>
+  </div>
+  <br>
+    <label class='total'>
+      Total Users: {{users.length}}
+  
+    </label>
+  </table>
+  </ul>
+  
+  <table class="userdisplay" *ngIf="selectedUser">
+  
+    <div>
+      
+      <h2>{{selectedUser.name }}'s Details</h2>
+        <label for="user-name">Name: </label>
+        <input id="user-name"  [(ngModel)]="selectedUser.name" placeholder="name"><br>
+        <label style="margin-left: 6px;" for="user-age">Age: </label>
+        <input id="user-age" style="margin-left: 6px;"  [(ngModel)]="selectedUser.age" placeholder="age">
+        <br>
+        <button mat-button class='button' (click)='updateUser(selectedUser)'>Save Changes</button>
+        <button mat-button class='button' (click)='deleteUser(selectedUser)'>Delete User</button>
+      
+    </div>
+  </table>

@@ -1,0 +1,106 @@
+.title {
+    text-align: center;
+    color:black;
+    box-shadow: 0px 1px 1px black;
+    -webkit-box-shadow: 0px 1px 1px black;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+   
+}
+.userlist {
+    height:150px;
+    border: solid 5px rgb(51, 182, 154);
+    background-color: rgb(216, 216, 216);
+    width: 50%;
+    margin-left: auto;  
+    margin-right: auto;  
+    padding: 5px;  
+    top: 100px;
+    position: relative;
+    font-weight: bold;
+    line-height: 14px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px black;
+    -moz-box-shadow: 0px 5px 5px black;
+    -webkit-box-shadow: 0px 5px 5px black;
+  
+}
+.userdisplay{
+        height:230px;
+        border: solid 5px rgb(51, 182, 154);
+        max-width: 1920px;
+        min-width: 480px;
+        background-color: rgb(216, 216, 216);
+        width: 49%;
+        left:505px;
+        top: 100px;
+        position: relative;
+        line-height: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 5px 5px black;
+        -moz-box-shadow: 0px 5px 5px black;
+        -webkit-box-shadow: 0px 5px 5px black;
+}
+.badge {
+    line-height:20px;
+}
+.showcase {
+    padding: 10px;
+    position: relative;
+    bottom: 1px;
+    margin-bottom: 1px;
+    margin-left:5px
+}
+.usertitle {
+    text-align: center;
+}
+.id {
+    background-color: rgb(51, 182, 154);
+    border: solid, 5 rgb(51, 182, 154);
+    width: 102%;
+    margin-bottom: 1px;
+    position: relative;
+    right: 7px;
+    box-shadow: 0px 1px 1px black;
+    -webkit-box-shadow: 0px 1px 1px black;
+}
+.id:hover {
+    background-color: rgb(25, 75, 64);
+}
+.id1 {
+    position: relative;
+    font-size: 35px;
+    top: 23px;
+    margin-right: 2px;
+    margin-left: 2px;
+    
+}
+.total {
+ margin-top:100px   
+}
+.button {
+    width: 10%;
+    background-color: rgb(51, 182, 154);
+    border: none;
+    text-align: center;
+    font-size:15px;
+    padding: 10px 10px;
+    border-radius:10px;
+    color: white;
+    margin-top:10px;
+    margin-right:5px;
+}
+.button:hover {
+    background-color: rgb(25, 75, 64);
+}
+.my-avatar {
+    position: absolute;
+    top: 5px;
+    
+   
+}
+.users {
+    max-width: 1920px;
+    min-width: 480px;
+}

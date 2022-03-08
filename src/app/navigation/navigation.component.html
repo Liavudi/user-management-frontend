@@ -1,0 +1,9 @@
+<nav>
+    <a mat-raised-button  routerLink='/' class ="active" rounterLinkActive="active"> HomePage</a>
+    <a mat-raised-button *ngIf="this.auth.isAuthenticated === false" routerLink='/login' class ="active" rounterLinkActive="active"> Login</a>
+    <a mat-raised-button *ngIf="this.auth.isAuthenticated" routerLink='/todolist' class ="active" rounterLinkActive="active"> Todo List</a>
+    <a mat-raised-button *ngIf='this.auth.isAuthenticated === false' routerLink='/registration' class ="active" rounterLinkActive="active">Create User</a>
+    <a mat-raised-button routerLink='/userlist' class ="active" rounterLinkActive="active">User List</a> 
+    <button  *ngIf="this.auth.isAuthenticated" mat-raised-button (click)="logOut()">Log out</button> 
+    
+</nav>

@@ -1,0 +1,4 @@
+<div *ngFor="let v of validation.age">
+    <div style="color: red" *ngIf="registrationForm.controls['age'].hasError(v.type) &&
+        (registrationForm.controls['age'].dirty || registrationForm.controls['age'].touched)">{{v.message}}
+    </div>

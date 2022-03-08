@@ -1,0 +1,24 @@
+.tododiv {
+    background-color: white;
+    border: solid 1px;
+    margin-top: 5px;
+    width: 20%;
+    
+}
+.todotitle {
+    margin-left: 150px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.todo {
+    word-wrap: break-word; 
+}
+.delete {
+    margin-left: 385px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .delete:hover {
+    opacity: 1;
+  }
