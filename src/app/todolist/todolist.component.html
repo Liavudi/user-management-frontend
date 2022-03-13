@@ -1,8 +1,8 @@
-<div *ngFor="let todo of todos">
-    <div class='tododiv' *ngIf="this.todo.todo != null">
-        <label class="todotitle" *ngIf="this.todo.todo != null ">{{this.todo.username}}'s todo:</label>
-        <button *ngIf='this.loggedUser === this.todo.username && this.todo.todo != null' class='delete' (click)="deleteTodo()">X</button><br>
-        <label class="todo">{{this.todo.todo}}</label>
+<div *ngFor="let todo of todolist">
+    <div class='tododiv' *ngIf="todo.todo != null">
+        <label class="todotitle" *ngIf="todo.todo != null ">{{todo.username}}'s todo:</label>
+        <button *ngIf='this.loggedUser === todo.username && todo.todo != null' class='delete' (click)="deleteTodo(this.loggedUser, todo._id)">X</button><br>
+        <label class="todo">{{todo.todo}}</label>
         
     </div>
 </div>
