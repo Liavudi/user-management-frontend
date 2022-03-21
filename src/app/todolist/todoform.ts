@@ -1,10 +1,11 @@
+
 export class TodoForm {
     _id: string;
-    username: string
-    todo: string
-    constructor(_id: string, username: string, todo: string) {
+    ownerId: string
+    text: string
+    constructor(_id: string, ownerId: string, text: string) {
         this._id = _id;
-        this.username = username
-        this.todo = todo
+        this.ownerId = ownerId
+        this.text = text
     }
 }

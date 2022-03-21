@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../login/authservice';
 import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',

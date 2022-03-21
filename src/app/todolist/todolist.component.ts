@@ -11,18 +11,17 @@ import { LoggedinService } from '../services/loggedin.service'
 })
 
 export class TodolistComponent implements OnInit {
-  todolist?: TodoForm[] = []
-  loggedUser = this.userName.getLogged()
-  constructor(private todoService: TodoService, public userName: LoggedinService) { }
+  todoList?: TodoForm[] = []
+  loggedUser = this.userId.getLogged()
+  constructor(private todoService: TodoService, public userId: LoggedinService) { }
 
   ngOnInit(): void {
-    this.todoService.getTodoList().subscribe(todolist => { this.todolist = todolist.body?.todos; console.log(this.todolist), console.log(todolist) })
+    this.todoService.getTodoList().subscribe(res => { this.todoList = res.body?.data })
   }
   createTodo(todo: string) {
-
-    this.todoService.createTodo(this.loggedUser, todo).subscribe(res => { console.log(res); if (res.status === 200) { alert('Todo created successfully') } else { alert(`Didn't work, Reason: ${res.body?.error.message}`) } })
+    this.todoService.createTodo(this.loggedUser, todo).subscribe(res => { if (res.status === 201) { alert(res.body?.data) } else { alert(`Didn't work, Reason: ${res.body?.error.message}`) } })
   }
-  deleteTodo(user: string, todoId: string) {
-    this.todoService.deleteTodo(user,todoId).subscribe(res => { console.log(res); if (res.status === 200) { alert('Todo Deleted Refresh The Page!') } else { alert(`Didn't work, Reason: ${res.body?.error.message}`) } })
+  deleteTodo(todoId: string) {
+    this.todoService.deleteTodo(todoId).subscribe(res => { if (res.status === 200) { alert(res.body?.data) } else { alert(`Didn't work, Reason: ${res.body?.error.message}`) } })
   }
 }

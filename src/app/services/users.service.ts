@@ -11,6 +11,7 @@ type Error = {
 export interface UserResponse {
   error: Error
   status: number
+  data: string
 }
 
 export interface ListUsersResponse {

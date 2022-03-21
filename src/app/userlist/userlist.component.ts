@@ -16,7 +16,6 @@ export class UserlistComponent implements OnInit {
   ngOnInit(): void {
     this.usersService.getUsers().subscribe(listUsersResponse => {
       this.users = listUsersResponse.users;
-      console.log(this.users)
     });
   }
   onSelect(user: UserForm): void {
@@ -25,7 +24,7 @@ export class UserlistComponent implements OnInit {
   deleteUser(user: UserForm) {
     this.selectedUser = user;
     var id = this.selectedUser.id
-    this.usersService.deleteUser(id).subscribe(res => { console.log(res); if (res.status === 200) { alert("User deleted successfully") } else { alert(`Failed to delete user. Reason: ${res.body?.error.message}`)}});
+    this.usersService.deleteUser(id).subscribe(res => { if (res.status === 200) { alert(res.body?.data) } else { alert(`Failed to delete user. Reason: ${res.body?.error.message}`) } });
 
   }
   updateUser(user: UserForm) {
@@ -33,10 +32,10 @@ export class UserlistComponent implements OnInit {
     let id = this.selectedUser.id
     this.usersService.updateUser(id, this.selectedUser).subscribe
       (res => {
-        console.log(res); if (res.status === 200) {
+        if (res.status === 200) {
           alert('User updated succesfully');
         } else {
-          alert(`Failed to create user. Reason: ${res.body?.error.message}`)
+          alert(`Failed to create user. Reason: ${res.body?.data}`)
         }
       });
   }
