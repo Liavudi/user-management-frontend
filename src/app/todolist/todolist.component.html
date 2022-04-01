@@ -1,12 +1,21 @@
-<div *ngFor="let todo of todoList">
-    <div class='tododiv' *ngIf="todo.text != null">
-        <label class="todotitle" *ngIf="todo.text != null ">{{todo.ownerId}}'s todo:</label>
-        <button *ngIf='this.loggedUser === todo.ownerId && todo.text != null' class='delete' (click)="deleteTodo(todo._id)">X</button><br>
-        <label class="todo">{{todo.text}}</label>
-        
+<div class="tododiv">
+    <h1 class="todotitle">My Todo List</h1>
+    <div class="main">
+        <div class="createtodo">
+            <mat-form-field>
+                <input class='todoinput' matInput #todoinput placeholder="Create a todo">
+            </mat-form-field>
+            <button class="addtodo" mat-flat-button (click)="createTodo(todoinput.value)">Add</button>
+        </div>
     </div>
-</div>
-<div>
-    <input #todo placeholder="Create a todo">
-    <button mat-raised-button (click)="createTodo(todo.value)">Submit</button>
+    <div id='todo'*ngFor="let todo of todoList">
+        <mat-checkbox #confirmed>
+        </mat-checkbox>
+        <div class="textdiv">
+            <label for='todo' class="todotext" >{{todo.text}}</label>
+        </div>
+        <div class="delete-container">
+        <button  id="delete-button" *ngIf="confirmed.checked" (click)="deleteTodo(todo._id)">X</button>
+        </div>
+    </div>
 </div>

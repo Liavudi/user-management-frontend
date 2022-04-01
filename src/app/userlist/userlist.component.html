@@ -9,7 +9,8 @@
             Username: {{user.username}}<br>
             Name:{{user.name}}<br>
             Age: {{user.age}}<br>
-            Email: {{user.email}}
+            Email: {{user.email}}<br>
+            Role: {{user.role}}
           </span>  
           </div>
 
@@ -27,12 +28,22 @@
   
     <div>
       
-      <h2>{{selectedUser.name }}'s Details</h2>
+      <h2>{{selectedUser.name}}'s Details</h2>
         <label for="user-name">Name: </label>
-        <input id="user-name"  [(ngModel)]="selectedUser.name" placeholder="name"><br>
-        <label style="margin-left: 6px;" for="user-age">Age: </label>
+        <input id="user-name"  [(ngModel)]="selectedUser.name" placeholder="email"><br>
+        <label for="email">Email: </label>
+        <input id="email"  [(ngModel)]="selectedUser.email" placeholder="email"><br>
+        <label for="user-age">Age: </label>
         <input id="user-age" style="margin-left: 6px;"  [(ngModel)]="selectedUser.age" placeholder="age">
         <br>
+            <mat-form-field appearance="fill">
+              <mat-label>Select a role</mat-label>
+              <mat-select id="roles" [(ngModel)]="selectedUser.role">
+                <mat-option value="admin">Admin</mat-option>
+                <mat-option value="user">User</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
         <button mat-button class='button' (click)='updateUser(selectedUser)'>Save Changes</button>
         <button mat-button class='button' (click)='deleteUser(selectedUser)'>Delete User</button>
       

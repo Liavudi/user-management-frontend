@@ -1,24 +1,92 @@
 .tododiv {
-    background-color: white;
+    background-color: rgba(224, 224, 224, 0.705);
     border: solid 1px;
-    margin-top: 5px;
-    width: 20%;
-    
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
 }
 .todotitle {
-    margin-left: 150px;
+    text-align: center;
+    // text-decoration: underline;
     font-weight: bold;
     font-size: 18px;
 }
-.todo {
-    word-wrap: break-word; 
+#todo {
+    word-wrap: break-word;
+    padding-top: 13px;
+    margin-left: 3px;
+    margin-bottom: 20px;
+
 }
-.delete {
-    margin-left: 385px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.3;
+.todotext{ 
+    margin-left:1px;
+}
+
+input[type=checkbox]:checked + label  {
+    text-decoration:line-through !important;
+    
+
+}
+.createtodo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px;
+}
+.todoinput {
+    border-radius: 2px;
+    height: 36px;
+    background-color: rgba(146, 146, 146, 0.705);
+}
+.addtodo {
+    background-color: rgb(8, 192, 146);
+    margin-top: -6px;
+}
+.addtodo:hover {
+    background-color: rgb(4, 70, 53)
+}
+mat-form-field {
+    width: 100%;
   }
-  .delete:hover {
-    opacity: 1;
+::ng-deep .mat-form-field-underline {
+    display: none;
+}
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgba(0, 144, 108, 0.767) !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
   }
+
+.main{
+    height: 60px;
+    
+}
+#delete-button {
+    background-color: red;
+    height: 23px;
+    width: 23px;
+    font-size: 12px; 
+    border: none;
+    border-radius: 5px;
+    margin-right: 2px;
+    cursor: pointer;
+}
+#delete-button:hover {
+    background-color:rgb(134, 0, 0)
+}
+.delete-container {
+    display:flex;
+    align-items: baseline;
+    float:right;
+    justify-content: flex-end;
+    margin-top: -40px;
+    
+}
+.textdiv{
+    width: 87%;
+    margin-right: 10px;
+    position: relative;
+    left: 19px;
+    top: -19px;
+}

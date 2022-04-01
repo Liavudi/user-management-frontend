@@ -1,6 +1,5 @@
-input[type=name], input[type=number] {
+input {
     width: 65%;
-    
     padding: 5px 5px;
     margin: 8px 0;
     border: none;
@@ -8,6 +7,7 @@ input[type=name], input[type=number] {
     border-radius: 3px;
     background-color: rgba(226, 227, 228, 0.89);
     font-size: 12px;
+    margin-left: 10px;
     
 }
 label[type=name], label[type=number] {
@@ -38,6 +38,11 @@ label[type=name], label[type=number] {
     width: 250px;
     height: 220px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: baseline;
  
 }
 .sign {
@@ -55,13 +60,13 @@ button.submit {
     background-color: rgb(51, 182, 154);
     border: none;
     font-weight: bold;
-    top: 70px;
+    top: 27px;
     padding: 10px 20px;
     border-radius:3px;
     color: white;
 }
 .submit:hover {
-    
+    cursor: pointer;
     background-color: rgb(25, 75, 64);
 }
 .validation {

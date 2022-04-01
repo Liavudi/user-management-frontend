@@ -12,8 +12,12 @@ export class UserlistComponent implements OnInit {
   users: UserForm[] = []
   selectedUser?: UserForm;
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService, ) { }
   ngOnInit(): void {
+    this.getUpdatedUserList();
+
+  }
+  getUpdatedUserList() {
     this.usersService.getUsers().subscribe(listUsersResponse => {
       this.users = listUsersResponse.users;
     });
@@ -23,20 +27,29 @@ export class UserlistComponent implements OnInit {
   }
   deleteUser(user: UserForm) {
     this.selectedUser = user;
-    var id = this.selectedUser.id
-    this.usersService.deleteUser(id).subscribe(res => { if (res.status === 200) { alert(res.body?.data) } else { alert(`Failed to delete user. Reason: ${res.body?.error.message}`) } });
+    let id = this.selectedUser.id;
+    let userName = this.selectedUser.username
+    this.usersService.deleteUser(id, userName).subscribe(res => { 
+      if (res.status === 200) {
+        alert(res.body?.data); this.getUpdatedUserList()
+      } else {
+        alert(`Failed to delete user. Reason: ${res.body?.error.message}`)
+      }
+    });
 
   }
   updateUser(user: UserForm) {
     this.selectedUser = user;
-    let id = this.selectedUser.id
+    let id = this.selectedUser.id;
     this.usersService.updateUser(id, this.selectedUser).subscribe
       (res => {
         if (res.status === 200) {
-          alert('User updated succesfully');
+          alert(res.body?.data);
+          this.getUpdatedUserList()
         } else {
-          alert(`Failed to create user. Reason: ${res.body?.data}`)
+          alert(`Failed to create user. Reason: ${res.body?.error.message}`)
         }
       });
   }
 }
+

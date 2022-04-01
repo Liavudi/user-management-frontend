@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { AuthService } from './login/authservice';
 import { NavigationComponent } from './navigation/navigation.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MaterialsModule,
 
   ],
-  providers: [AuthService,{
+  providers: [CookieService,AuthService,{
     provide: HTTP_INTERCEPTORS,
     useClass: InterceptorService,
     multi: true

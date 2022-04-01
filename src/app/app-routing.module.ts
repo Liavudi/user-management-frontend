@@ -11,7 +11,6 @@ const routes: Routes = [{ path: 'userlist', component: UserlistComponent},
 { path: 'login', component: LoginComponent},
 {path: 'todolist', component: TodolistComponent, canActivate: [AuthGuard]}];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
