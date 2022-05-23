@@ -13,11 +13,9 @@ export interface UserResponse {
   error: Error
   status: number
   data: string
-}
-
-export interface ListUsersResponse {
   users: UserForm[];
 }
+
 export interface Data {
   username: string
   role: string
@@ -35,17 +33,15 @@ export interface LoginResponse {
 
 
 export class UsersService {
-  private userName = this.cookie.get('username')
   private serverAddress = 'http://localhost:5000';
+  constructor(private http: HttpClient,) { }
 
-  constructor(private http: HttpClient, private cookie: CookieService) { }
 
-
-  public getUsers(): Observable<ListUsersResponse> {
-    return this.http.get<ListUsersResponse>(`${this.serverAddress}/users/${this.userName}`);
+  public getUsers(): Observable<UserResponse> {
+    return this.http.get<UserResponse>(`${this.serverAddress}/users`, { withCredentials: true });
   }
   public createUser(user: UserForm): Observable<HttpResponse<UserResponse>> {
-    return this.http.post<UserResponse>(`${this.serverAddress}/users`, user, { observe: "response" });
+    return this.http.post<UserResponse>(`${this.serverAddress}/users`, user, { observe: 'response' });
   }
 
   public deleteUser(id: number, selectedUser: string): Observable<HttpResponse<UserResponse>> {
@@ -53,14 +49,14 @@ export class UsersService {
   }
 
   public updateUser(id: number, user: UserForm): Observable<HttpResponse<UserResponse>> {
-    return this.http.put<UserResponse>(`${this.serverAddress}/users/${id}`, user, { observe: "response" });
+    return this.http.put<UserResponse>(`${this.serverAddress}/users/${id}`, user, { observe: 'response' });
   }
 
   public loginUser(userDetails: LoginForm): Observable<HttpResponse<LoginResponse>> {
-    return this.http.post<LoginResponse>(`${this.serverAddress}/login`, userDetails, { observe: "response", withCredentials: true })
+    return this.http.post<LoginResponse>(`${this.serverAddress}/login`, userDetails, { observe: 'response', withCredentials: true })
   }
-  public checkLogged(): Observable<HttpResponse<LoginResponse>> {
-    return this.http.post<LoginResponse>(`${this.serverAddress}/`, this.userName, { observe: 'response' })
+  public logOut(): Observable<HttpResponse<LoginResponse>> {
+    return this.http.post<LoginResponse>(`${this.serverAddress}/logout`,  null, {observe: 'response', withCredentials: true})
   }
 
 }

@@ -8,14 +8,15 @@
             <button class="addtodo" mat-flat-button (click)="createTodo(todoinput.value)">Add</button>
         </div>
     </div>
-    <div id='todo'*ngFor="let todo of todoList">
-        <mat-checkbox #confirmed>
+    <div id='todo' *ngFor="let todo of todoList">
+        <mat-checkbox color="primary" #confirmed>
         </mat-checkbox>
         <div class="textdiv">
-            <label for='todo' class="todotext" >{{todo.text}}</label>
+            <label for='todo' [style.text-decoration]="confirmed.checked? 'line-through':''"
+                class="todotext">{{todo.text}}</label>
         </div>
         <div class="delete-container">
-        <button  id="delete-button" *ngIf="confirmed.checked" (click)="deleteTodo(todo._id)">X</button>
+            <button id="delete-button" (click)="deleteTodo(todo._id)">X</button>
         </div>
     </div>
 </div>

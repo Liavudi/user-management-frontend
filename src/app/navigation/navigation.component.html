@@ -4,6 +4,6 @@
     <a mat-raised-button *ngIf="this.auth.isAuthenticated" routerLink='/todolist' class ="active" rounterLinkActive="active"> Todo List</a>
     <a mat-raised-button *ngIf='this.auth.isAuthenticated === false' routerLink='/registration' class ="active" rounterLinkActive="active">Create User</a>
     <a mat-raised-button routerLink='/userlist' *ngIf="this.role === 'admin' && this.auth.isAuthenticated" class ="active" rounterLinkActive="active">User List</a>  
-    <button class="logoutbtn" *ngIf="this.auth.isAuthenticated" mat-raised-button (click)="logOut()">Log out</button> 
+    <button class="logoutbtn" *ngIf="this.auth.isAuthenticated" mat-raised-button (click)="logOut()" >Logout</button>
     
 </nav>

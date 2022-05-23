@@ -3,64 +3,62 @@
         <div class="container form2" [formGroup]="registrationForm">
             <h1 class='title sign'>Create User</h1><br>
             <div class="email-input">
-                    <label class='text' type='email'>Email</label>
-                    <input id="email"formControlName="email" type="email"  placeholder="Email" #email>
-                    <br>
-                    <div *ngFor="let v of validation.email">
-                        <div style="color: red"
-                            *ngIf="registrationForm.controls['email'].hasError(v.type) &&
+                <label class='text' type='email'>Email</label>
+                <input id="email" formControlName="email" type="email" placeholder="Email" #email>
+                <br>
+                <div class="validation first" *ngFor="let v of validation.email">
+                    <div style="color: red" *ngIf="registrationForm.controls['email'].hasError(v.type) &&
                             (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)">
-                            {{v.message}}
-                        </div>
+                        {{v.message}}
                     </div>
+                </div>
             </div>
             <div class="username-input">
-                <label class='text' type='username' >Username</label>
+                <label class='text' type='username'>Username</label>
                 <input id="username" type="username" formControlName='username' placeholder="Username" #username><br>
-                <div *ngFor="let v of validation.username">
+                <div class="validation second" *ngFor="let v of validation.username">
                     <div style="color: red" *ngIf="registrationForm.controls['username'].hasError(v.type) &&
-                    (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)">
+                        (registrationForm.controls['username'].dirty || registrationForm.controls['username'].touched)">
                         {{v.message}}
+                    </div>
+                </div>
+                <div class="password-input">
+                    <label class='text' type='passowrd'>Password</label>
+                    <input id="password" type="password" formControlName='password' placeholder="Password" #password>
+                    <br>
+                    <div class="validation third" *ngFor="let v of validation.password">
+                        <div style="color: red" *ngIf="registrationForm.controls['password'].hasError(v.type) &&
+                        (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+                            {{v.message}}
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="name-input">
                 <label class='text' type='name' for="name">Name</label>
                 <input id="name" type="name" formControlName="name" #name placeholder="Name"><br>
-                <div *ngFor="let v of validation.name">
+                <div class="validation fourth" *ngFor="let v of validation.name">
                     <div style="color: red" *ngIf="registrationForm.controls['name'].hasError(v.type) &&
                         (registrationForm.controls['name'].dirty || registrationForm.controls['name'].touched)">
                         {{v.message}}
                     </div>
                 </div>
             </div>
-            <div class="password-input">
-                <label class='text' type='passowrd' >Password</label>
-                <input id="password" type="password" formControlName='password' placeholder="Password"#password>
+
+            <div class="age-input">
+                <label class='text' type='number' for="age">Age</label>
+                <input #age id="age" placeholder="Age" type="number" formControlName='age'>
                 <br>
-                <div *ngFor="let v of validation.password">
-                    <div style="color: red" *ngIf="registrationForm.controls['password'].hasError(v.type) &&
-                    (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)">
+                <div class="validation fifth" *ngFor="let v of validation.age">
+                    <div style="color: red" *ngIf="registrationForm.controls['age'].hasError(v.type) &&
+                        (registrationForm.controls['age'].dirty || registrationForm.controls['age'].touched)">
                         {{v.message}}
                     </div>
                 </div>
             </div>
-
-            <div class="age-input">
-                    <label class='text' type='number' for="age">Age</label>
-                    <input #age style='margin-left: 10px;' id="age" placeholder="Age" type="number"
-                        formControlName='age'>
-                    <br>
-                    <div *ngFor="let v of validation.age">
-                        <div style="color: red" *ngIf="registrationForm.controls['age'].hasError(v.type) &&
-                        (registrationForm.controls['age'].dirty || registrationForm.controls['age'].touched)">
-                            {{v.message}}
-                        </div>
-                    </div>
-            </div>
-                <button mat-button id='sumbit' class="submit" [disabled]="!registrationForm.valid"
-                    (click)='onSubmit(null ,age.value, name.value, password.value, email.value, username.value)'>
-                    Submit</button>
+            <button mat-button id='sumbit' class="submit" [disabled]="!registrationForm.valid"
+                (click)='onSubmit(null ,age.value, name.value, password.value, email.value, username.value)'>
+                Submit</button>
         </div>
     </div>
 </div>

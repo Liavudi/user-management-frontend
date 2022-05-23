@@ -4,7 +4,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoggedinService} from './services/loggedin.service' 
 import { AuthService } from './login/authservice';
 import { UsersService } from './services/users.service'
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,7 +21,6 @@ export class AppComponent {
             if (this.cookie.check('username')) {
               this.auth.isAuthenticated = true
               this.loggedIn = this.cookie.get('username')
-              // userService.checkLogged().subscribe(res => console.log(res))
               }
         }
     });

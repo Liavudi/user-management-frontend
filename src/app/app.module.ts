@@ -25,8 +25,7 @@ import { CookieService } from 'ngx-cookie-service';
     FormvalidationComponent,
     LoginComponent,
     TodolistComponent,
-    NavigationComponent,
-    
+    NavigationComponent    
   ],
   imports: [
     FormsModule,

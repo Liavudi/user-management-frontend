@@ -1,11 +1,13 @@
 .outter-form {
-    background-color: #33b69a;  
+    background-color: rgba(51, 182, 154, 0.516);
     width: 533px;
     height: 270px;
     margin-top: 200px;
     position: relative;
     margin: auto;
     top: 100px;
+    box-shadow : 0px;
+    -webkit-box-shadow: 0px 5px 5px black;
 }
 
 .inner-form{
@@ -17,6 +19,7 @@
     width: 500px;
     height: 240px;
     border-radius: 10px; 
+    box-shadow: 0px 0px 3px black;
 }
 .title {
     text-align: center;
