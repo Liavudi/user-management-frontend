@@ -49,7 +49,7 @@ export class UsersService {
   }
 
   public updateUser(id: number, user: UserForm): Observable<HttpResponse<UserResponse>> {
-    return this.http.put<UserResponse>(`${this.serverAddress}/users/${id}`, user, { observe: 'response' });
+    return this.http.put<UserResponse>(`${this.serverAddress}/users/${id}`, user, { observe: 'response', withCredentials: true});
   }
 
   public loginUser(userDetails: LoginForm): Observable<HttpResponse<LoginResponse>> {
